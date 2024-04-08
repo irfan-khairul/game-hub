@@ -4,10 +4,17 @@ import { CanceledError } from "axios"
 // faking api to save request...
 import fakeApi from "../assets/games.json"
 
+export interface Platform {
+  id: number
+  name: string
+  slug: string
+}
+
 export interface Game {
   id: number
   name: string
-  background_image:string
+  background_image: string
+  parent_platforms: { platform: Platform }[]
 }
 
 interface FetchGameResponse {
@@ -30,7 +37,7 @@ export default function useGames() {
       .catch((err) => {
         if (err instanceof CanceledError) return
         if (err.response.status === 404) {
-          console.clear()
+          // console.clear()
           console.error("GET method failed. Revert to fake-api.ts")
           console.error("To resolve, please check BaseURL in api-client.ts")
           return setGames(fakeApi)
