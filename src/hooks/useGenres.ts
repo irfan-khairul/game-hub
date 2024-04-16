@@ -5,6 +5,6 @@ export interface Genre {
   name: string
 }
 
-const useGenres = () => useData<Genre>("/genres")
+const useGenres = () => useData<Genre>("/genres", 'genres')
 
 export default useGenres
