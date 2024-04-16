@@ -24,15 +24,18 @@ interface FetchGameResponse {
 }
 
 export default function useGames() {
+  const [isLoading, setLoading] = useState(false)
   const [games, setGames] = useState<Game[]>([])
   const [error, setError] = useState("")
 
   useEffect(() => {
     const controller = new AbortController()
 
+    setLoading(true)
     apiClient
       .get<FetchGameResponse>("/games", { signal: controller.signal })
       .then((res) => {
+        setLoading(false)
         setGames(res.data.results)
       })
       .catch((err) => {
@@ -41,13 +44,15 @@ export default function useGames() {
           // console.clear()
           console.error("GET method failed. Revert to fake-api.ts")
           console.error("To resolve, please check BaseURL in api-client.ts")
+          setLoading(false)
           return setGames(fakeApi)
         }
         setError(err.message)
+        setLoading(false)
       })
 
     return () => controller.abort()
   }, [])
 
-  return { games, error }
+  return { games, error ,isLoading}
 }
