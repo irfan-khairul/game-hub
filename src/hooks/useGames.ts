@@ -1,5 +1,5 @@
-// faking api to save request...
 import useData from "./useData"
+import games from "../assets/games.json" // for faking api
 
 export interface Platform {
   id: number
@@ -15,6 +15,6 @@ export interface Game {
   metacritic: number
 }
 
-const useGames = () => useData<Game>("/games", 'games')
+const useGames = () => useData<Game>("/games", games)
 
 export default useGames
