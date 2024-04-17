@@ -38,7 +38,7 @@ function GenreList({ onSelectGenre, selectedGenre }: Props) {
                 onSelectGenre(genre)
               }}
               fontSize={"lg"}
-              variant={"ghost"}
+              variant={"link"}
             >
               {genre.name}
             </Button>
