@@ -1,4 +1,5 @@
 import useData from "./useData"
+import { Genre } from "./useGenres"
 import games from "../assets/games.json" // for faking api
 
 export interface Platform {
@@ -15,6 +16,9 @@ export interface Game {
   metacritic: number
 }
 
-const useGames = () => useData<Game>("/games", games)
+const useGames = (selectedGenre: Genre | null) =>
+  useData<Game>("/games", { params: { genres: selectedGenre?.id } }, [
+    selectedGenre?.id,
+  ])
 
 export default useGames
