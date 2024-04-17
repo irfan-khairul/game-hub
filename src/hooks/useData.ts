@@ -34,7 +34,7 @@ export default function useData<T>(
         })
         .catch((err) => {
           if (err instanceof CanceledError) return
-          // if (err.response.status === 404) {
+          // if (err.response.status === 404 || 505) {
           //   // console.clear()
           //   // console.error(
           //   //   "GET method failed. Revert to fake-api.ts.",
