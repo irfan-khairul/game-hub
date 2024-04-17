@@ -1,5 +1,6 @@
 import useData from "./useData"
 import { Genre } from "./useGenres"
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import games from "../assets/games.json" // for faking api
 
 export interface Platform {
