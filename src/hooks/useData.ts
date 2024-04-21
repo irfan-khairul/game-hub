@@ -30,7 +30,7 @@ export default function useData<T>(
         .then((res) => {
           setLoading(false)
           setData(res.data.results)
-          // console.log(res.data.results)
+          console.log(res.data.results)
         })
         .catch((err) => {
           if (err instanceof CanceledError) return
