@@ -3,7 +3,7 @@ import platforms from "../data/platforms"
 import apiClient, { FetchResponse } from "../services/api-client"
 // import platforms from "../assets/platforms.json" // for faking api
 
-interface Platform {
+export interface Platform {
   id: number
   name: string
   slug: string
