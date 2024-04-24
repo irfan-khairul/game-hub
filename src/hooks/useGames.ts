@@ -33,7 +33,7 @@ const useGames = (gameQuery: GameQuery) =>
       return lastpage.next ? allPages.length + 1 : undefined
     },
     staleTime: ms("24h"), // 24h
-    retry: false,
+    retry: 3,
   })
 
 // useData<Game>(
