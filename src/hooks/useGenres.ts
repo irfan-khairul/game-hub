@@ -1,9 +1,9 @@
-// import useData from "./useData"
-// import genres from "../assets/genres.json" // for faking api
-import genres from "../data/genres"
 import { useQuery } from "@tanstack/react-query"
+import genres from "../data/genres"
 import apiClient from "../services/api-client"
 import { FetchResponse } from "./useData"
+// import useData from "./useData"
+// import genres from "../assets/genres.json" // for faking api
 
 export interface Genre {
   id: number
