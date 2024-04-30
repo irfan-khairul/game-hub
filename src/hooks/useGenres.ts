@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query"
 import ms from "ms"
 import genres from "../data/genres"
 import APIClient from "../services/api-client"
-import { Genre } from "../entities/Genre"
+import Genre from "../interfaces/Genre"
 // import useData from "./useData"
 // import genres from "../assets/genres.json" // for faking api
 
