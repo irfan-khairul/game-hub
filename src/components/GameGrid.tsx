@@ -22,29 +22,31 @@ function GameGrid() {
   const fetchedGamesCount =
     data?.pages.reduce((total, page) => total + page.results.length, 0) || 0
 
+  const LoadingButton = () => {
+    return error ? (
+      <React.Fragment>
+        <Button
+          marginY={3}
+          onClick={() => fetchNextPage()}
+          isLoading={isFetchingNextPage}
+          loadingText="Loading..."
+        >
+          Retry
+        </Button>
+        <Text>{error.message}</Text>
+      </React.Fragment>
+    ) : (
+      <Button isLoading loadingText="Loading..." marginY={3} />
+    )
+  }
+
   return (
     <Box padding={"10px"}>
       <InfiniteScroll
         dataLength={fetchedGamesCount} //This is important field to render the next data
         next={() => fetchNextPage()}
         hasMore={!!hasNextPage} // double '!!' to convert undefined to boolean-false
-        loader={
-          error ? (
-            <React.Fragment>
-              <Button
-                marginY={3}
-                onClick={() => fetchNextPage()}
-                isLoading={isFetchingNextPage}
-                loadingText="Loading..."
-              >
-                Retry
-              </Button>
-              <Text>{error.message}</Text>
-            </React.Fragment>
-          ) : (
-            <Button isLoading loadingText="Loading..." marginY={3} />
-          )
-        }
+        loader={<LoadingButton />}
       >
         <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={6}>
           {isLoading &&
