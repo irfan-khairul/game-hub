@@ -1,3 +1,45 @@
+# Game Hub
+
+Game Hub is a simple application that allows users to browse a collection of games. This project was developed as part of an online course and serves as an example of how to create a basic game browsing application.
+
+## Features
+
+- Browse a list of available games
+- View game details, including title, genre, and description
+- Responsive design for desktop and mobile devices
+
+## Getting Started
+
+These instructions will help you set up and run the project on your local machine for development and testing purposes.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (version 12 or later)
+- [Git](https://git-scm.com/)
+
+### Installation
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/irfan-khairul/game-hub.git
+
+2. **Navigate to project directory**
+
+   ```bash
+   cd game-hub
+   
+3. **Install Dependencies**
+Make sure you have Node.js installed. Then run:
+
+   ```bash
+   npm install
+
+4. **Start the Development Server**
+
+    ```bash
+    npm run dev
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
